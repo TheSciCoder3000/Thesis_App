@@ -1,5 +1,6 @@
+import { Programs, SubjectStudies } from "@/utils/Constants"
 
-function ProgramInfo({ className }) {
+function ProgramInfo({ className, onUpdateField }) {
     return (
         <div className={`category-container ${className}`}>
             <div className="category-header">
@@ -8,26 +9,29 @@ function ProgramInfo({ className }) {
             </div>
             <div className="field-container">
                 <label htmlFor="program">Program</label>
-                <select name="program" id="program">
-                    <option value disabled selected>---</option>
-                    <option value="MMA">Multimedia Arts</option>
-                    <option value="MEE">Mechanical Engineering</option>
-                    <option value="Computer Engineering">Computer Engineering</option>
+                <select name="program" id="program" defaultValue={null} onChange={e => onUpdateField({ "program": e.target.value })}>
+                    <option value={null} disabled>---</option>
+                    {Object.entries(Programs).map(([prog, value]) =>
+                        <option key={prog} value={value}>{prog}</option>
+                    )}
                 </select>
             </div>
             <div className="field-container">
                 <label htmlFor="co-program">Co-Program</label>
-                <select name="co-program" id="co-program">
-                    <option value disabled selected>---</option>
-                    <option value="MMA">Multimedia Arts</option>
-                    <option value="MEE">Mechanical Engineering</option>
-                    <option value="Computer Engineering">Computer Engineering</option>
+                <select name="co-program" id="co-program" defaultValue={null} onChange={e => onUpdateField({ "co-program": e.target.value })}>
+                    <option value={null} disabled>---</option>
+                    {Object.entries(Programs).map(([prog, value]) =>
+                        <option key={prog} value={value}>{prog}</option>
+                    )}
                 </select>
             </div>
             <div className="field-container">
                 <label htmlFor="subject-study">Subject of Study</label>
-                <select name="subject-study" id="subject-study">
-                    <option value="none">None of the above</option>
+                <select name="subject-study" id="subject-study" defaultValue={null} onChange={e => onUpdateField({ "subject-study": e.target.value })}>
+                    <option value={null} disabled>---</option>
+                    {Object.entries(SubjectStudies).map(([key, value]) =>
+                        <option key={key} value={value}>{value}</option>
+                    )}
                 </select>
             </div>
         </div>

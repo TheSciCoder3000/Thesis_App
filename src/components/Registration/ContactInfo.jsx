@@ -1,5 +1,5 @@
 
-function ContactInfo({ className }) {
+function ContactInfo({ className, onUpdateField }) {
     return (
         <div className={`category-container ${className}`}>
             <div className="category-header">
@@ -12,11 +12,11 @@ function ContactInfo({ className }) {
             <div className="field-container">
                 <label htmlFor="contact-email">Email: </label>
                 <input required placeholder="email@mail.com" type="email" name="contact-email"
-                    id="contact-email" />
+                    id="contact-email" onChange={e => onUpdateField({ "contact-email": e.target.value })} />
             </div>
             <div className="field-container">
                 <label htmlFor="contact-number">Contact Number: </label>
-                <input required type="tel" name="contact-number" id="contact-number" />
+                <input required type="tel" name="contact-number" id="contact-number" pattern="[0-9]{11}" onChange={e => onUpdateField({ "contact-number": e.target.value })} />
             </div>
         </div>
     )

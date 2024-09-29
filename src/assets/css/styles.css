@@ -139,15 +139,13 @@ input::placeholder, select::placeholder {
     padding: 3rem 2rem;
   }
 }
-.registration-container .forms-container form {
-  overflow-x: hidden;
-}
 .registration-container .forms-container form .full {
   width: 100%;
   box-sizing: border-box;
 }
 .registration-container .forms-container form .flex {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 @media (max-width: 799px) {
@@ -164,13 +162,28 @@ input::placeholder, select::placeholder {
   flex: 1;
 }
 .registration-container .forms-container form .slider {
+  width: 100%;
   transition: margin-left 0.15s ease-in-out;
 }
 .registration-container .forms-container form .slider .category-container {
   display: none;
+  position: relative;
 }
 .registration-container .forms-container form .slider .category-container.active {
   display: block;
+}
+.registration-container .forms-container form .slider .category-container .list-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.registration-container .forms-container form .slider .category-container .list-actions button {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.registration-container .forms-container form .slider .category-container .list-actions button:hover {
+  background-color: rgba(171, 171, 171, 0.0941176471);
 }
 .registration-container .forms-container form .slider .category-container .category-header {
   margin-bottom: 3rem;
@@ -187,6 +200,28 @@ input::placeholder, select::placeholder {
 .registration-container .forms-container form .slider .category-container .field-container {
   margin-bottom: 1.5rem;
 }
+.registration-container .forms-container form .slider .category-container .field-container .label-container {
+  align-items: center;
+}
+.registration-container .forms-container form .slider .category-container .field-container .label-container label {
+  margin: 0;
+}
+.registration-container .forms-container form .slider .category-container .field-container .label-container .remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.registration-container .forms-container form .slider .category-container .field-container .label-container .remove-btn svg {
+  fill: rgba(96, 96, 96, 0.502);
+  height: 1rem;
+  aspect-ratio: 1/1;
+}
+.registration-container .forms-container form .slider .category-container .field-container .label-container .remove-btn svg:hover {
+  fill: rgba(96, 96, 96, 0.712);
+}
 .registration-container .forms-container form .form-control-container {
   margin-top: 3rem;
   display: flex;
@@ -198,14 +233,20 @@ input::placeholder, select::placeholder {
   cursor: pointer;
   background-color: white;
 }
-.registration-container .forms-container form .form-control-container button.affirm {
+.registration-container .forms-container form .form-control-container button.affirm:not(:disabled) {
   background-color: green;
   border: 1px solid green;
   color: white;
 }
-.registration-container .forms-container form .form-control-container button.affirm:hover {
+.registration-container .forms-container form .form-control-container button.affirm:not(:disabled):hover {
   background-color: rgb(0, 109, 0);
 }
 .registration-container .forms-container form .form-control-container button:hover {
   background-color: rgb(249, 249, 249);
+}
+.registration-container .forms-container form .form-control-container button:disabled {
+  color: rgb(153, 153, 153);
+  border: 2px solid rgb(228, 228, 228);
+  cursor: not-allowed;
+  background-color: white;
 }/*# sourceMappingURL=styles.css.map */
