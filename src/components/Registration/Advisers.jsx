@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ToggleSwitch from "../ToggleSwitch";
 
 const initialNameValue = {
     "last": null,
@@ -9,6 +10,7 @@ const initialNameValue = {
 function Advisers({ className, onUpdateField }) {
     const [adviser, setAdviser] = useState(initialNameValue);
     const [coAdviser, setCoAdviser] = useState(initialNameValue);
+    const [showCoAdviser, setShowCoAdviser] = useState(false);
 
     const updateState = (field, e, setState) => {
         setState(state => { return { ...state, [field]: e.target.value } })
@@ -20,6 +22,14 @@ function Advisers({ className, onUpdateField }) {
             "co-adviser": coAdviser
         })
     }, [adviser, coAdviser])
+
+    const displayCoAdviser = (state) => {
+        setShowCoAdviser(state);
+
+        if (!state) {
+            setCoAdviser(null);
+        }
+    }
 
     return (
         <div className={`category-container ${className}`}>
@@ -40,15 +50,18 @@ function Advisers({ className, onUpdateField }) {
                 </div>
             </div>
             <div className="field-container">
-                <label htmlFor="co-adviser">Co-Adviser</label>
-                <div className="flex">
-                    <input className="full" type="text" id="co-adviser-last" name="co-adviser-last"
-                        placeholder="Last Name" onChange={e => updateState("last", e, setCoAdviser)} />
-                    <input className="full" type="text" id="co-adviser-first" name="co-adviser-first"
-                        placeholder="First Name" onChange={e => updateState("first", e, setCoAdviser)} />
-                    <input className="full" type="text" id="co-adviser-middle" name="co-adviser-middle"
-                        placeholder="Middle Name" onChange={e => updateState("middle", e, setCoAdviser)} />
+                <div className="label-container flex">
+                    <label htmlFor="co-adviser">Co-Adviser</label>
+                    <ToggleSwitch onChange={displayCoAdviser} />
                 </div>
+                {showCoAdviser && <div className="flex">
+                    <input required className="full" type="text" id="co-adviser-last" name="co-adviser-last"
+                        placeholder="Last Name" onChange={e => updateState("last", e, setCoAdviser)} />
+                    <input required className="full" type="text" id="co-adviser-first" name="co-adviser-first"
+                        placeholder="First Name" onChange={e => updateState("first", e, setCoAdviser)} />
+                    <input required className="full" type="text" id="co-adviser-middle" name="co-adviser-middle"
+                        placeholder="Middle Name" onChange={e => updateState("middle", e, setCoAdviser)} />
+                </div>}
             </div>
         </div>
     )
