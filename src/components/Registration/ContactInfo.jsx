@@ -16,7 +16,7 @@ function ContactInfo({ className, onUpdateField }) {
             </div>
             <div className="field-container">
                 <label htmlFor="contact-number">Contact Number: </label>
-                <input required type="tel" name="contact-number" id="contact-number" pattern="[0-9]{11}" onChange={e => onUpdateField({ "contact-number": e.target.value })} />
+                <input required placeholder="09XXXXXXXXX" type="tel" name="contact-number" id="contact-number" pattern="[0-9]{11}" onChange={e => onUpdateField({ "contact-number": e.target.value })} />
             </div>
         </div>
     )
