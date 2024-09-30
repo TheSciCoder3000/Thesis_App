@@ -6,7 +6,7 @@ import Authors from './Authors';
 import Advisers from './Advisers';
 import ContactInfo from './ContactInfo';
 import ProgramInfo from './ProgramInfo';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useMultiForms from '@/utils/hooks/MultiFormsHook';
 import { backendUrl } from '@/utils/Constants';
 import { post } from '@/utils/api';
@@ -66,6 +66,13 @@ function Registration() {
                 alert("Thesis Registration Complete")
             });
     }
+
+    useEffect(() => {
+        const debug = true;
+        if (debug) {
+            console.table(FormState);
+        }
+    }, [FormState])
 
     return (
         <div className="registration-container">
