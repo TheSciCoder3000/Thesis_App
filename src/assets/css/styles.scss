@@ -72,6 +72,28 @@ input, select {
 }
 
 
+.switch-container {
+    display: flex;
+    height: 1.3rem;
+    width: 3rem;
+    border-radius: 25px;
+    background-color: rgb(222, 222, 222);
+    padding: 0.25rem;
+    cursor: pointer;
+
+    &.active {
+        justify-content: flex-end;
+        background-color: green;
+    }
+
+    .switch-button {
+        background-color: white;
+        height: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+    }
+}
+
 
 .registration-container {
     display: flex;
@@ -156,10 +178,10 @@ input, select {
                 @include media("<600px") {
                     flex-direction: column;
                 }
-                
-                div {
-                    flex: 1;
-                }
+            }
+
+            .flex-1 {
+                flex: 1;
             }
             
             .slider {
@@ -210,6 +232,7 @@ input, select {
 
                         .label-container {
                             align-items: center;
+                            margin-bottom: 0.5rem;
 
                             label {
                                 margin: 0;
