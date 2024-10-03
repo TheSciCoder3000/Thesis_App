@@ -1,5 +1,13 @@
 @import "./breakpoints.scss";
 
+@font-face {
+    font-family: 'galliardroman';
+    src: url('../fonts/galliard_roman-webfont.woff') format('woff'),
+        url('../fonts/galliard_roman-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -102,6 +110,53 @@ input, select {
     height: 100vh;
     padding: 0.75rem;
     overflow: hidden;
+
+    .form-header {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 5rem;
+
+        .logo-container {
+            .dlsud-logo-img {
+                height: 6rem;
+                aspect-ratio: 1/1;
+
+                @include media("<800px") {
+                    height: 4rem;
+                }
+            }
+        }
+
+        .header-content {
+            color: rgb(0, 93, 0);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            h1 {
+                font-family: 'galliardroman';
+                font-weight: 400;
+                font-size: 3vw;
+                margin: 0;
+
+                @include media("<800px") {
+                    font-size: 4vw;
+                }
+            }
+            h2 {
+                font-family: 'galliardroman';
+                font-size: 2vw;
+                letter-spacing: 0.9em;
+                margin: 0;
+
+                @include media("<800px") {
+                    font-size: 2.5vw;
+                }
+            }
+        }
+
+    }
 
     .img-container {
         border-radius: 12px;

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "galliardroman";
+  src: url("../fonts/galliard_roman-webfont.woff") format("woff"), url("../fonts/galliard_roman-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -100,6 +106,49 @@ input::placeholder, select::placeholder {
   height: 100vh;
   padding: 0.75rem;
   overflow: hidden;
+}
+.registration-container .form-header {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+.registration-container .form-header .logo-container .dlsud-logo-img {
+  height: 6rem;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 799px) {
+  .registration-container .form-header .logo-container .dlsud-logo-img {
+    height: 4rem;
+  }
+}
+.registration-container .form-header .header-content {
+  color: rgb(0, 93, 0);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.registration-container .form-header .header-content h1 {
+  font-family: "galliardroman";
+  font-weight: 400;
+  font-size: 3vw;
+  margin: 0;
+}
+@media (max-width: 799px) {
+  .registration-container .form-header .header-content h1 {
+    font-size: 4vw;
+  }
+}
+.registration-container .form-header .header-content h2 {
+  font-family: "galliardroman";
+  font-size: 2vw;
+  letter-spacing: 0.9em;
+  margin: 0;
+}
+@media (max-width: 799px) {
+  .registration-container .form-header .header-content h2 {
+    font-size: 2.5vw;
+  }
 }
 .registration-container .img-container {
   border-radius: 12px;

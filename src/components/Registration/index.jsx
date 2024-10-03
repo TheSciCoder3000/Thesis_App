@@ -1,5 +1,6 @@
 
 import '@/assets/css/styles.css';
+import DlsudLogo from '@/assets/img/dlsud-logo.png';
 import FormBkg from '@/assets/img/form-background.jpg'
 import Information from './Information';
 import Authors from './Authors';
@@ -77,7 +78,15 @@ function Registration() {
     return (
         <div className="registration-container">
             <div className="forms-container">
-                <h1>Thesis Registration Form</h1>
+                <div className="form-header">
+                    <div className="logo-container">
+                        <img src={DlsudLogo} className="dlsud-logo-img" />
+                    </div>
+                    <div className="header-content">
+                        <h1>De La Salle University</h1>
+                        <h2>DASMARINAS</h2>
+                    </div>
+                </div>
                 <form onSubmit={onFormSubmit} method="post">
                     <div ref={ref} className="slider">
                         {RegistrationForms.map((RegisterForm, indx) => (
